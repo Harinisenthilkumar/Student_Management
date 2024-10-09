@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+        body {
+            background: linear-gradient(to right, #ff4b1f, #1fddff); /* Updated gradient */
+            color: white;
+            font-family: 'Arial', sans-serif;
+            min-height: 100vh; /* Full height */
+            display: flex;
+            align-items: center; /* Center vertically */
+            justify-content: center; /* Center horizontally */
+            overflow: hidden;
+        }
+
+        .container {
+            background-color: rgba(0, 0, 0, 0.8); /* Darker semi-transparent background */
+            padding: 40px; /* Increased padding */
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            animation: slideUp 0.5s ease-out;
+            position: relative;
+            z-index: 1; /* Ensure text is above the background */
+            text-align: center; /* Center text within container */
+        }
+
+        h1 {
+            font-size: 48px; /* Increased size */
+            font-weight: bold;
+            margin-bottom: 30px;
+            animation: fadeIn 2s ease-in-out; /* Smooth fade-in */
+        }
+
+        .btn {
+            margin: 10px;
+            padding: 15px 30px; /* Increased button padding */
+            font-size: 18px; /* Increased button text size */
+            transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s; /* Add background transition */
+        }
+
+        .btn-primary {
+            background-color: #007bff; /* Custom color */
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3; /* Darker on hover */
+            transform: scale(1.1); /* Slightly enlarge on hover */
+        }
+
+        .btn-secondary {
+            background-color: #6c757d; /* Custom color */
+        }
+
+        .btn-secondary:hover {
+            background-color: #5a6268; /* Darker on hover */
+            transform: scale(1.1); /* Slightly enlarge on hover */
+        }
+
+        .btn-success {
+            background-color: #28a745; /* Custom color */
+        }
+
+        .btn-success:hover {
+            background-color: #218838; /* Darker on hover */
+            transform: scale(1.1); /* Slightly enlarge on hover */
+        }
+
+        @keyframes slideUp {
+            0% {
+                transform: translateY(100%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the Student Management System</h1>
+        <div>
+            <a href="/admin/" class="btn btn-primary">Admin Login</a>
+            <a href="{% url 'student_login' %}" class="btn btn-secondary">Student Login</a>
+            <a href="{% url 'student_signup' %}" class="btn btn-success">Student Signup</a>
+        </div>
+    </div>
+</body>
+</html>

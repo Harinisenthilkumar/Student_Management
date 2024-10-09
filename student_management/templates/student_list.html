@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student List</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+        body {
+            background: linear-gradient(to right, #ff4b1f, #1fddff); /* Updated gradient */
+            color: white;
+            font-family: 'Arial', sans-serif;
+            min-height: 100vh; /* Full height */
+            overflow: hidden;
+        }
+
+        h2 {
+            font-size: 36px; /* Adjusted size */
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 30px;
+            animation: fadeIn 1s ease-in-out; /* Fade-in effect */
+        }
+
+        .container {
+            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            animation: slideUp 0.5s ease-out; /* Slide-up animation */
+            position: relative;
+            z-index: 1; /* Ensure text is above the background */
+            margin-top: 100px; /* Center the container vertically */
+        }
+
+        .table {
+            background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent table background */
+            border-radius: 10px; /* Rounded corners for the table */
+        }
+
+        th, td {
+            text-align: center; /* Centered text for table headers and cells */
+        }
+
+        th {
+            background-color: rgba(255, 255, 255, 0.2); /* Light background for headers */
+            color: #fff; /* White text for headers */
+        }
+
+        @keyframes slideUp {
+            0% {
+                transform: translateY(100%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Student List</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Full Name</th>
+                    <th>Mobile Number</th>
+                    <th>Course</th>
+                    <th>Paid Fees</th>
+                    <th>Username</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for student in students %}
+                <tr>
+                    <td>{{ student.full_name }}</td>
+                    <td>{{ student.mobile_number }}</td>
+                    <td>{{ student.course }}</td>
+                    <td>{{ student.paid_fees }}</td>
+                    <td>{{ student.user.username }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
